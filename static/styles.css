@@ -1,0 +1,221 @@
+body {
+    background-image: url('images/fundo2.png');
+    background-size: cover;
+}
+
+.cont-login {   
+    width: 360px;
+    margin: auto;
+    margin-top: 60px;
+    border: 1px solid #d3d3d3;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+
+        
+}
+
+.cont-resul {   
+    width: 500px;
+    margin: auto;
+    margin-top: 20px;
+    border: 1px solid #d3d3d3;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 12px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+
+        
+}
+
+.docgeral {   
+    width: 800px;
+    margin: auto;
+    margin-top: 40px;
+    border: 1px solid #d3d3d3;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+
+        
+}
+
+.loginusuario {
+    height: 33px;
+    border: 1px solid #d3d3d3;
+    border-radius: 3px;
+    margin-top: 40px;
+
+}
+
+.loginemail {
+    height: 33px;
+    border: 1px solid #d3d3d3;
+    border-radius: 3px;
+    margin-top: -25px;
+
+}
+
+.loginsenha {
+    height: 33px;
+    border: 1px solid #d3d3d3;
+    border-radius: 3px;
+    margin-top: -25px;
+
+}
+
+.botao-acesso {
+    height: 30px;
+    background-color: #1f90bd;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.botao-pesquisar {
+
+    height: 0px;
+    background-color: #1f90bd;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 500px;
+    color: white;
+    margin: auto;
+    margin-top: 20px;
+    border: 1px solid #d3d3d3;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 12px;
+    padding: 30px;
+    text-decoration: none;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center;
+
+}
+
+.img-logo {
+    width: 310px;
+    margin-left: 23px;
+    display: block;
+    margin-top: -20px;
+
+    
+}
+
+
+.select-estado {
+    width: 100%;
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 12px;
+    font-size: 11px;
+}
+
+.select-cidade {
+    width: 100%;
+    font-size: 11px;
+    padding: 3px;
+    border: 1px solid #ccc;
+    margin-top: -27px;
+    border-radius: 5px;
+}
+
+.assinatura {
+    width: 170px;
+    display: block;
+    margin-top: 25px;
+    margin-left: 1170px;
+    
+}
+
+.introsite {
+
+    padding: 9px; 
+    background-color: rgba(130, 200, 228, 0.3);
+    margin-top: 12px;
+    color: #333;
+    font-family: Arial, sans-serif; 
+    text-align: center;
+    font-size: 11px;
+}
+
+.msgalerta {
+
+    padding: 9px; /* Espaçamento interno para o conteúdo do comentário */
+    background-color: rgba(255, 0, 0, 0.7);
+    margin-top: -11px;
+    color: #333;
+    font-family: Arial, sans-serif; /* Escolhe uma fonte bonita */
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+.msgacesso {
+
+    padding: 1px; /* Espaçamento interno para o conteúdo do comentário */
+    background-color: rgba(130, 200, 228, 0.3);
+    margin-top: 15px;
+    color: #333;
+    font-family: Arial, sans-serif; /* Escolhe uma fonte bonita */
+    text-align: center;
+    font-size: 11px;
+}
+
+.esqueceu-senha {
+    color: #438dca;
+    text-align: center;
+    margin-top: 9px;
+    cursor: pointer;
+    font-size: 14px;
+
+}
+
+
+.ttdoc {
+    color: #438dca;
+    text-align: center;
+    margin-top: -15px;
+    cursor: pointer;
+    font-size: 34px;
+
+}
+
+/* Estilo para o campo de entrada de data */
+.datepicker-container {
+    display: flex; /* Usar flexbox para alinhar horizontalmente */
+    align-items: center; /* Centralizar verticalmente */
+}
+
+.datepicker {
+    width: 100%;
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: -14px;
+    font-size: 11px;
+    flex: 1; /* Ocupa o espaço restante */
+}
+
+/* Estilo para o botão de ícone do calendário */
+.date-picker-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: -14px;
+    margin-left: 5px;
+}

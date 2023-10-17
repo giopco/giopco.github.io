@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/styles.css">
+    <title>Previus Temp</title>
+
+    <!-- Inclua o CSS do flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    <style>
+        /* Estilo para o campo de entrada de data 
+        .datepicker-container {
+            display: flex;  Usar flexbox para alinhar horizontalmente 
+            align-items: center; /* Centralizar verticalmente 
+        }
+
+        .datepicker {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 150px;
+            flex: 1; /* Ocupa o espaço restante 
+        }*/
+
+        /* Estilo para o botão de ícone do calendário
+        .date-picker-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            margin-left: 5px;
+        }*/
+    </style>
+</head>
+<body>
+    <form class="cont-login" method="POST" action="/cidade">
+        <img src="static/images/titulo04.png" class="img-logo">
+
+        <div class="introsite">
+            <p id="welcome-text">Seja bem-vindo {{ username }}!</p>
+        </div>
+        <label for="estado" class="visually-hidden"> </label>
+        <select id="estado" name="estado" required class="select-estado">
+            <option value="" disabled selected hidden>Selecione o Estado</option>
+            <option value="SP">São Paulo</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PR">Paraná</option>
+            <option value="RS">Rio Grande do Sul</option>
+        </select><br><br>
+        <select id="cidade" name="cidade" required class="select-cidade">
+            <option value="" disabled selected hidden>Selecione a Cidade</option>
+        </select><br><br>
+
+        <!-- Campo de entrada de data e ícone do calendário 
+        <div class="datepicker-container">
+            <input type="text" id="datepicker" name="data" placeholder="Selecione a Data" required class="datepicker">
+            <button type="button" id="datepicker-button" class="date-picker-button">📅</button>
+        */</div>-->
+
+        <input class="botao-acesso" type="submit" value="Pesquisar" href="/resultado.html">
+        <div class="msgacesso">
+            <p>Consultar <a href="/documentacao">Documentação Swagger.</a></p>
+        </div>
+    </form>
+
+    <!-- Inclua o JavaScript do flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        const estadoSelect = document.getElementById("estado");
+        const cidadeSelect = document.getElementById("cidade");
+        const welcomeText = document.getElementById("welcome-text");
+        const datepickerInput = document.getElementById("datepicker");
+        
+        estadoSelect.addEventListener("change", function() {
+            cidadeSelect.innerHTML = "";
+
+            const estadoSelecionado = estadoSelect.value;
+            const cidades = {
+                SP: ["São Paulo", "Campinas", "Santos"],
+                RJ: ["Rio de Janeiro", "Niterói", "Nova Iguaçu"],
+                MG: ["Belo Horizonte", "Uberlândia", "Juiz de Fora"],
+                PR: ["Curitiba", "Londrina", "Maringá"],
+                BA: ["Salvador", "Feira de Santana", "Vitória da Conquista"],
+                PE: ["Recife", "Caruaru", "Petrolina"],
+                CE: ["Fortaleza", "Caucaia", "Juazeiro do Norte"],
+                DF: ["Brasília", "Ceilândia", "Taguatinga"],
+                AM: ["Manaus", "Itacoatiara", "Parintins"],
+                RS: ["Porto Alegre", "Caxias do Sul", "Pelotas"],
+                SC: ["Florianópolis", "Joinville", "Blumenau"],
+                RN: ["Natal", "Mossoró", "Parnamirim"],
+                MS: ["Campo Grande", "Dourados", "Três Lagoas"],
+                GO: ["Goiânia", "Aparecida de Goiânia", "Anápolis"]
+            };
+
+            const cidadesDoEstado = cidades[estadoSelecionado];
+            if (cidadesDoEstado) {
+                cidadesDoEstado.forEach(cidade => {
+                    const option = document.createElement("option");
+                    option.value = cidade;
+                    option.textContent = cidade;
+                    cidadeSelect.appendChild(option);
+                });
+            }
+        });
+
+        // Inicialize o flatpickr no campo de entrada de data
+        flatpickr(datepickerInput, {
+            dateFormat: "d/m/Y",  // Formato da data
+        });
+
+        // Adicione um evento de clique ao botão de ícone para abrir o calendário
+        document.getElementById("datepicker-button").addEventListener("click", function() {
+            datepickerInput._flatpickr.open();
+        });
+    </script>
+</body>
+</html>

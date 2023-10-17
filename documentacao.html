@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/styles.css">
+    <title>Previus Temp - Documentação</title>
+</head>
+<body>
+    <p id="welcome-text">Seja bem-vindo {{ username }}!</p>
+    <a class="botao-acesso" href="/">Voltar para o início</a>
+
+    <form class="docgeral" method="POST">
+        
+    <h1 class="ttdoc">Documentação da API de Previsão do Tempo</h1>
+
+    <h2>Obter Previsão do Tempo</h2>
+    <p>
+        Para obter a previsão do tempo de uma cidade, faça uma solicitação GET para a seguinte URL:
+    </p>
+    <pre>/previsao?cidade=NOMEDACIDADE</pre>
+    <p>
+        Substitua "NOMEDACIDADE" pelo nome da cidade para a qual você deseja obter a previsão do tempo.
+    </p>
+
+    <h3>Parâmetros da Solicitação</h3>
+    <ul>
+        <li><strong>cidade</strong> (obrigatório): O nome da cidade para a qual deseja obter a previsão do tempo.</li>
+    </ul>
+
+    <h3>Exemplo de Solicitação</h3>
+    <p>Exemplo de solicitação GET para obter a previsão do tempo de São Paulo:</p>
+    <pre>/previsao?cidade=SaoPaulo</pre>
+
+    <h3>Resposta da API</h3>
+    <p>A API retornará uma resposta no formato JSON contendo informações sobre a previsão do tempo da cidade selecionada. Aqui está um exemplo de resposta:</p>
+    <pre>
+    {
+        "city": {
+            "name": "Sao Paulo",
+            "country": "BR"
+        },
+        "list": [
+            {
+                "dt": 1633860000,
+                "main": {
+                    "temp": 25.2,
+                    "humidity": 63
+                },
+                "weather": [
+                    {
+                        "description": "Clear"
+                    }
+                ]
+            },
+            // Outras informações de previsão
+        ]
+    }
+    </pre>
+
+    <h2>Autenticação</h2>
+    <p>
+        A autenticação é necessária para obter a previsão do tempo. Você deve incluir sua API Key na solicitação como um parâmetro "api_key".
+    </p>
+
+    <h3>Exemplo de Solicitação Autenticada</h3>
+    <p>Exemplo de solicitação GET com autenticação para obter a previsão do tempo de São Paulo:</p>
+    <pre>/previsao?cidade=SaoPaulo&api_key=SUA_API_KEY</pre>
+
+    <h2>Códigos de Resposta</h2>
+    <ul>
+        <li><strong>200 OK</strong>: A solicitação foi bem-sucedida, e a previsão do tempo foi retornada.</li>
+        <li><strong>400 Bad Request</strong>: Parâmetros ausentes ou inválidos na solicitação.</li>
+        <li><strong>401 Unauthorized</strong>: Falha na autenticação, API Key ausente ou inválida.</li>
+        <li><strong>500 Internal Server Error</strong>: Erro interno do servidor ao obter a previsão do tempo.</li>
+    </ul>
+
+    <h2>Contato autor</h2>
+    <p>
+        Para obter esclarecer dúvidas, entre em contato giovanny.lucas@uni9.edu.br.
+    </p>
+</body>
+</html>
