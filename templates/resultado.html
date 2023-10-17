@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/styles.css">
+    <title>Previus Temp</title>
+</head>
+<body>
+    <div class="cont-resul">
+        <h2>Olá {{ username }},</h2>
+        <h4>Previsão do Tempo para {{ cidade }}:</h4>
+        <p>Temperatura: {{ temperatura }}°C</p>
+        <p>Temperatura Mínima: {{ temperatura_minima }}°C</p>
+        <p>Temperatura Máxima: {{ temperatura_maxima }}°C</p>
+        <p>Descrição do Clima: <span id="clima-descricao">{{ descricao_clima }}</span></p>
+
+        <!-- Informações Adicionais (inicialmente ocultas) -->
+        <div id="info-adicional" style="display: none;">
+            <h4>Informações detalhadas:</h4>
+            <p>Umidade: {{ umidade }}%</p>
+            <p>Pressão Atmosférica: {{ pressao_atmosferica }} hPa</p>
+            <p>Velocidade do Vento: {{ velocidade_vento }} m/s</p>
+            <p>Direção do Vento: {{ direcao_vento }}°</p>
+            <p>Nascer do Sol: {{ nascer_sol }}</p>
+            <p>Pôr do Sol: {{ por_sol }}</p>
+
+        </div>
+
+        <!-- Link "Mostrar Mais" -->
+        <a id="mostrar-mais-link" href="javascript:void(0);" onclick="mostrarMais()">Mais informações</a>
+        
+
+    </div>
+        <a class="botao-pesquisar" href="/home">Nova Pesquisa</a>
+    <script>
+        // Mapeamento de tradução para a descrição do clima
+        const descricaoClimaTraducao = {
+            "clear sky": "Céu limpo.",
+            "few clouds": "Parcialmente nublado.",
+            "scattered clouds": "Nuvens dispersas.",
+            "broken clouds": "Nuvens quebradas.",
+            "shower rain": "Chuva fraca.",
+            "rain": "Chuva.",
+            "thunderstorm": "Tempestade.",
+            "snow": "Neve.",
+            "mist": "Névoa.",
+            "overcast clouds": "Nuvens nubladas.",
+            "thunderstorm with light rain": "Tempestade com chuva fraca.",
+            "thunderstorm with rain": "Tempestade com chuva.",
+            "thunderstorm with heavy rain": "Tempestade com chuva intensa.",
+            "light thunderstorm": "Tempestade leve.",
+            "heavy thunderstorm": "Tempestade intensa.",
+            "ragged thunderstorm": "Tempestade irregular.",
+            "thunderstorm with light drizzle": "Tempestade com garoa fraca.",
+            "thunderstorm with drizzle": "Tempestade com garoa.",
+            "thunderstorm with heavy drizzle": "Tempestade com garoa intensa."
+        };
+
+        // Elemento onde a descrição do clima será exibida
+        const descricaoClimaElemento = document.getElementById("clima-descricao");
+
+        // Obter a descrição do clima da página
+        const descricaoClima = descricaoClimaElemento.textContent;
+
+        // Traduzir a descrição do clima, se disponível no mapeamento
+        if (descricaoClimaTraducao[descricaoClima]) {
+            descricaoClimaElemento.textContent = descricaoClimaTraducao[descricaoClima];
+        }
+
+        let infoAdicionalVisivel = false;
+
+        function mostrarMais() {
+            const infoAdicional = document.getElementById("info-adicional");
+            const mostrarMaisLink = document.getElementById("mostrar-mais-link");
+
+            if (!infoAdicionalVisivel) {
+                infoAdicional.style.display = "block";
+                mostrarMaisLink.textContent = "Mostrar Menos";
+            } else {
+                infoAdicional.style.display = "none";
+                mostrarMaisLink.textContent = "Mostrar Mais";
+            }
+
+            infoAdicionalVisivel = !infoAdicionalVisivel;
+        }
+    </script>
+</body>
+</html>

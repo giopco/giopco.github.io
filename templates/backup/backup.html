@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/styles.css">
+    <title>Previus Temp</title>
+</head>
+<body>
+    
+
+    <form class="cont-login" method="POST" action="/cadastrar">
+        <img src="static/images/titulo04.png"  class="img-logo">
+        <div class="introsite">
+            <p>Este é o lugar onde você pode contar com informações precisas e atualizadas sobre o clima em sua região. Seja bem-vindo ao seu companheiro meteorológico online.</p>
+        </div>    
+        <input class="loginusuario" placeholder="Nome ou apelido" type="text" name="username" required><br><br>
+        <input class="loginemail" placeholder="Endereço de e-mail" type="email" name="email" required><br><br>
+
+        <input class="botao-acesso" type="submit" value="Acessar">
+        <div class="msgacesso">
+            <p>Consultar<a href="/documentacao"> Documentação</a></p>
+        </div>
+            
+    </form>
+    <img src="static/images/assinaturagio.png"  class="assinatura">
+</body>
+</html> 
+
+
+----
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/styles.css">
+    <title>Previus Temp</title>
+</head>
+<body>
+    
+
+
+<form class="cont-login" method="POST" action="/cadastrar">
+    <img src="static/images/titulo04.png" class="img-logo">
+    <div class="introsite">
+        <p>Este é o lugar onde você pode contar com informações precisas e atualizadas sobre o clima em sua região. Seja bem-vindo ao seu companheiro meteorológico online.</p>
+    </div>
+    <input class="loginusuario" placeholder="Nome ou apelido" type="text" name="username" required><br><br>
+    <input class="loginemail" placeholder="Endereço de e-mail" type="email" name= "email" required><br><br>
+
+    <label for="estado" class="visually-hidden"> </label>
+    <select id="estado" name="estado" required class="select-estado">
+        <option value="" disabled selected hidden>Selecione o Estado</option>
+        <option value="SP">SP</option>
+        <option value="RJ">RJ</option>
+        <option value="MG">MG</option>
+        <!-- ... outras opções ... -->
+    </select><br><br>
+
+    <select id="cidade" name="cidade" required class="select-cidade">
+        <option value="" disabled selected hidden>Selecione a Cidade</option>
+    </select><br><br>
+
+    <input class="botao-acesso" type="submit" value="Continuar">
+    <div class="msgacesso">
+        <p>Consultar <a href="/documentacao">Documentação</a></p>
+    </div>
+</form>
+<img src="static/images/assinaturagio.png" class="assinatura">
+
+<script>
+    const estadoSelect = document.getElementById("estado");
+    const cidadeSelect = document.getElementById("cidade");
+
+    estadoSelect.addEventListener("change", function() {
+        cidadeSelect.innerHTML = "";
+
+        const estadoSelecionado = estadoSelect.value;
+        const cidades = {
+            SP: ["São Paulo", "Campinas", "Santos"],
+            RJ: ["Rio de Janeiro", "Niterói", "Nova Iguaçu"],
+            MG: ["Belo Horizonte", "Uberlândia", "Juiz de Fora"],
+            RS: ["Porto Alegre", "Caxias do Sul", "Pelotas"],
+            PR: ["Curitiba", "Londrina", "Maringá"],
+            SC: ["Florianópolis", "Joinville", "Blumenau"],
+            BA: ["Salvador", "Feira de Santana", "Vitória da Conquista"],
+            CE: ["Fortaleza", "Caucaia", "Juazeiro do Norte"],
+            PE: ["Recife", "Jaboatão dos Guararapes", "Caruaru"],
+            DF: ["Brasília", "Ceilândia", "Taguatinga"],
+            GO: ["Goiânia", "Aparecida de Goiânia", "Anápolis"],
+            MT: ["Cuiabá", "Várzea Grande", "Rondonópolis"],
+            MS: ["Campo Grande", "Dourados", "Três Lagoas"],
+            AM: ["Manaus", "Parintins", "Itacoatiara"],
+            PA: ["Belém", "Ananindeua", "Santarém"],
+            RN: ["Natal", "Mossoró", "Parnamirim"],
+            TO: ["Palmas", "Araguaína", "Gurupi"],
+        };
+
+        const cidadesDoEstado = cidades[estadoSelecionado];
+        if (cidadesDoEstado) {
+            cidadesDoEstado.forEach(cidade => {
+                const option = document.createElement("option");
+                option.value = cidade;
+                option.textContent = cidade;
+                cidadeSelect.appendChild(option);
+            });
+        }
+    });
+
+    // Manter o estado e a cidade selecionados após o envio do formulário
+    const estadoSelecionadoInicial = estadoSelect.value;
+    const cidadeSelecionadaInicial = cidadeSelect.value;
+
+    // Define o estado selecionado
+    if (estadoSelecionadoInicial) {
+        estadoSelect.value = estadoSelecionadoInicial;
+    }
+
+    // Atualiza as cidades com base no estado selecionado
+    if (estadoSelecionadoInicial) {
+        const cidadesDoEstado = cidades[estadoSelecionadoInicial];
+        if (cidadesDoEstado) {
+            cidadesDoEstado.forEach(cidade => {
+                const option = document.createElement("option");
+                option.value = cidade;
+                option.textContent = cidade;
+                cidadeSelect.appendChild(option);
+            });
+        }
+    }
+
+    // Define a cidade selecionada
+    if (cidadeSelecionadaInicial) {
+        cidadeSelect.value = cidadeSelecionadaInicial;
+    }
+</script>
+</body>
+</html>
+
+
+------
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/styles.css">
+    <title>Previus Temp</title>
+</head>
+<body>
+    
+
+
+<form class="cont-login" method="POST" action="/cadastrar">
+    <img src="static/images/titulo04.png" class="img-logo">
+    <a href="/previsao-final">Continuar</a>
+
+    <div class="introsite">
+        <p>Este é o lugar onde você pode contar com informações precisas e atualizadas sobre o clima em sua região. Seja bem-vindo ao seu companheiro meteorológico online.</p>
+    </div>
+    <input class="loginusuario" placeholder="Nome ou apelido" type="text" name="username" required><br><br>
+    <input class="loginemail" placeholder="Endereço de e-mail" type="email" name= "email" required><br><br>
+
+    <label for="estado" class="visually-hidden"> </label>
+    <select id="estado" name="estado" required class="select-estado">
+        <option value="" disabled selected hidden>Selecione o Estado</option>
+        <option value="SP">SP</option>
+        <option value="RJ">RJ</option>
+        <option value="MG">MG</option>
+        <!-- ... outras opções ... -->
+    </select><br><br>
+
+    <select id="cidade" name="cidade" required class="select-cidade">
+        <option value="" disabled selected hidden>Selecione a Cidade</option>
+    </select><br><br>
+
+    <input class="botao-acesso" type="submit" value="Continuar">
+    <div class="msgacesso">
+        <p>Consultar <a href="/documentacao">Documentação</a></p>
+    </div>
+</form>
+<img src="static/images/assinaturagio.png" class="assinatura">
+
+<script>
+    const estadoSelect = document.getElementById("estado");
+    const cidadeSelect = document.getElementById("cidade");
+
+    estadoSelect.addEventListener("change", function() {
+        cidadeSelect.innerHTML = "";
+
+        const estadoSelecionado = estadoSelect.value;
+        const cidades = {
+            SP: ["São Paulo", "Campinas", "Santos"],
+            RJ: ["Rio de Janeiro", "Niterói", "Nova Iguaçu"],
+            MG: ["Belo Horizonte", "Uberlândia", "Juiz de Fora"],
+            RS: ["Porto Alegre", "Caxias do Sul", "Pelotas"],
+            PR: ["Curitiba", "Londrina", "Maringá"],
+            SC: ["Florianópolis", "Joinville", "Blumenau"],
+            BA: ["Salvador", "Feira de Santana", "Vitória da Conquista"],
+            CE: ["Fortaleza", "Caucaia", "Juazeiro do Norte"],
+            PE: ["Recife", "Jaboatão dos Guararapes", "Caruaru"],
+            DF: ["Brasília", "Ceilândia", "Taguatinga"],
+            GO: ["Goiânia", "Aparecida de Goiânia", "Anápolis"],
+            MT: ["Cuiabá", "Várzea Grande", "Rondonópolis"],
+            MS: ["Campo Grande", "Dourados", "Três Lagoas"],
+            AM: ["Manaus", "Parintins", "Itacoatiara"],
+            PA: ["Belém", "Ananindeua", "Santarém"],
+            RN: ["Natal", "Mossoró", "Parnamirim"],
+            TO: ["Palmas", "Araguaína", "Gurupi"],
+        };
+
+        const cidadesDoEstado = cidades[estadoSelecionado];
+        if (cidadesDoEstado) {
+            cidadesDoEstado.forEach(cidade => {
+                const option = document.createElement("option");
+                option.value = cidade;
+                option.textContent = cidade;
+                cidadeSelect.appendChild(option);
+            });
+        }
+    });
+
+    // Manter o estado e a cidade selecionados após o envio do formulário
+    const estadoSelecionadoInicial = estadoSelect.value;
+    const cidadeSelecionadaInicial = cidadeSelect.value;
+
+    // Define o estado selecionado
+    if (estadoSelecionadoInicial) {
+        estadoSelect.value = estadoSelecionadoInicial;
+    }
+
+    // Atualiza as cidades com base no estado selecionado
+    if (estadoSelecionadoInicial) {
+        const cidadesDoEstado = cidades[estadoSelecionadoInicial];
+        if (cidadesDoEstado) {
+            cidadesDoEstado.forEach(cidade => {
+                const option = document.createElement("option");
+                option.value = cidade;
+                option.textContent = cidade;
+                cidadeSelect.appendChild(option);
+            });
+        }
+    }
+
+    // Define a cidade selecionada
+    if (cidadeSelecionadaInicial) {
+        cidadeSelect.value = cidadeSelecionadaInicial;
+    }
+</script>
+</body>
+</html>
