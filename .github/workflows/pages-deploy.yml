@@ -22,11 +22,9 @@ jobs:
       run: npm install
 
     - name: Build site
-      run: npm run build  # Substitua isso pela sua tarefa de build
-
-    - name: Deploy to GitHub Pages
       run: |
         mkdir public
         cp -r templates/* public/
+        cp -r static/* public/
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
